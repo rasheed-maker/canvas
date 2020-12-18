@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   drawRect() {
     this.ctx.fillStyle = 'blue';
-    this.ctx.fillRect(0, 0, 100, 100);
+    this.ctx.fillRect(0, 0, 500, 500);
   }
 
   clearRect() {
@@ -47,9 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit() {
-   
-  }
+  ngOnInit() {}
 
   private setCanvasCtx() {
     this.canvas.nativeElement.width = window.innerWidth;
