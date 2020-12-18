@@ -12,7 +12,7 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild('canvas', { read: ElementRef, static: true })
+  @ViewChild('canvas')
   canvas: ElementRef<HTMLCanvasElement>;
   ctx: CanvasRenderingContext2D;
 
@@ -37,21 +37,27 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.ctx.clearRect(0, 0, 400, 400);
   }
 
-  setWidth(width) {
+  setWidth(width: string) {
     this.canvas.nativeElement.width = +width;
   }
 
-  setHeight(height) {
+  setHeight(height: string) {
     this.canvas.nativeElement.height = +height;
   }
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
 
-  ngAfterViewInit() {
+  private setCanvasCtx() {
     this.canvas.nativeElement.width = window.innerWidth;
     this.canvas.nativeElement.height = window.innerHeight;
     this.ctx = this.canvas.nativeElement.getContext('2d');
+  }
+
+  ngAfterViewInit() {
+    this.setCanvasCtx();
   }
 }
