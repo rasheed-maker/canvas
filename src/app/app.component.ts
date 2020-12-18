@@ -16,6 +16,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   canvas: ElementRef<HTMLCanvasElement>;
   ctx: CanvasRenderingContext2D;
 
+  constructor() { }
+
+  ngOnInit() { }
+
+  ngAfterViewInit() {
+    this.setCanvasCtx();
+  }
+
   drawLine(n) {
     this.ctx.moveTo(n, n);
     this.ctx.lineTo(100, 100);
@@ -45,17 +53,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.canvas.nativeElement.height = +height;
   }
 
-  constructor() {}
-
-  ngOnInit() {}
 
   private setCanvasCtx() {
+    console.log('test');
     this.canvas.nativeElement.width = window.innerWidth;
     this.canvas.nativeElement.height = window.innerHeight;
     this.ctx = this.canvas.nativeElement.getContext('2d');
   }
 
-  ngAfterViewInit() {
-    this.setCanvasCtx();
-  }
+
 }
