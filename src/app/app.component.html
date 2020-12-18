@@ -1,0 +1,14 @@
+<button (click)="drawRect()">draw a rect</button>
+<br />
+<button (click)="clearRect()">clear rect</button>
+<div class="container">
+  <input (input)="setWidth(input.value)" #input type="text" value="width" />
+  <input (input)="setHeight(input.value)" #input type="text" value="height" />
+</div>
+<br />
+<br />
+<br />
+
+<div class="container2">
+  <canvas #canvas></canvas>
+</div>
